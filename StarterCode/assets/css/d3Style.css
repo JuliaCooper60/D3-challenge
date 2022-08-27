@@ -68,3 +68,37 @@
     font-size: 13px;
   }
 }
+
+/* Tooltip container */
+.tooltip{
+
+  padding:2px 7px;
+  color:#55AAAA;
+  text-align:center;
+  font-weight:500;
+  background: -webkit-gradient(linear, left top, left 25, from(#F4F4F4), color-stop(4%, #B4C8D6), to(#F4F4F4)); 
+  background: -moz-linear-gradient(top, #F4F4F4, #B4C8D6 1px, #F4F4F4 25px); 
+  border: 1px solid #55AAAA;
+  -webkit-border-radius:9px;
+  -moz-border-radius:9px;
+  border-radius:9px;    
+}
+
+#scatter{
+  width:100%;
+}
+
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 57%;
+  vertical-align: top;
+  overflow: hidden;
+}
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
