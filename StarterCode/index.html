@@ -8,70 +8,62 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/d3Style.css">
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/bootstrap.css">
   <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.css">
 
 </head>
 
 <body>
   <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <h1>D3 Times</h1>
-    </nav>
-    <!-- <div class="row">
-      <div class="col-xs-12 col-md-12">
-        <h1>D3Times</h1>
-      </div>
-    </div> -->
-    <div class="row">
-      <div class="col-xs-12  col-md-9">
-        <div id="scatter" class="svg-container">
-          <!-- We append our chart here. -->
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12  col-md-9">
+    <a class="navbar-brand" href="index.html">D3 Times</a>
+    <div class="card-body">
+      <h4 class="card-title">Dynamic Chart </h4>
+      <p class="card-text">Commence by clicking `Percentage in Poverty` first to enable full chart functionality.
+      </p>
+      <div class="row">
+        <div class="col-xs-12  col-md-9">
 
-        <div class="card border-primary mb-3" style="max-width: 220rem;">
-          <div class="card-body">
-            <h4 class="card-title">A review of relationships between health risks and
-              certain descriptive demographics</h4>
-            <hr>
-            <p class="card-text">The chart above visualizes the relationship between
-              several independent or manipulated (x-axis) variables and dependent or
-              responding (y-axis) variables, measured by state in the US. As always, correlation
-              does not imply causation as there could be any number of factors contributing to both figures.
-              <br><br>
-
-              Median age in the states does not have a correlation to average smokers,
-              citizens without access to healthcare or percentage of the population that
-              are obese.
-              <br><br>
-
-              Median income in a state has a mild negative linear relationship with percentage
-              of the population without access to healthcare and percentage of the population
-              that are obese while there is no relationship between median income and lack of
-              access to healthcare.<br><br>
-
-              Percentage of the population of a state residing in poverty has a weak relationship
-              with all three responding variables, with all three showing a slightly positive association.
-            </p>
+          <div id="scatter" class="svg-container">
+            <!-- We append our chart here. -->
           </div>
         </div>
       </div>
     </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12  col-md-9">
 
-    <br><br> <hr> <br><br>
-    <div class ="row">
-       <div class="col-xs-12  col-md-9 mx-auto" >
-          <a href="data.html"><h1>Click to view Data Table</h1></a>    
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Datapage.html">Data</a>
-        </li>
-       </div>
-   </div>
+        <div class="card-body">
+          <h4 class="card-title">A review of relationships between health risks and
+            certain descriptive demographics</h4>
+          <br>
+          <p class="card-text">The chart above enables the visualisation of any relationships between
+            several independent or manipulated (x-axis) demographic variables, and dependent or
+            responding (y-axis) health risk variables, measured by state in the US. It is notes that any correlation
+            does not imply causation as there could be multiple factors contributing to both figures.
+            <br><br>
+
+            Percentage of the population of a state residing in poverty has a weak relationship
+            with all three responding variables, with all three showing a slightly positive association.
+            <br><br>
+
+            Median income in a state has a mild negative linear relationship with percentage
+            of the population that smoke and are obese and percentage of the population
+            that are obese while there is no aparent relationship between median income and lack of
+            access to healthcare.<br><br>
+
+            Median age across the states does not have a correlation to percentage of smokers,
+            citizens without access to healthcare or percentage of the population that
+            are obese.
+          </p>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="col-xs-12  col-md-3 mx-auto">
+        <a href="data.html">Click to view Data Table</a>
+      </div>
+    </div>
 
     <!-- Footer-->
     <div id="footer">
@@ -86,7 +78,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
 

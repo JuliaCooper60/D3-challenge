@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- establish chart style -->
+  <style>
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      text-align: left;
+      padding: 16px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+  <title>D3Times</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://bootswatch.com/4/default/bootstrap.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: lightseagreen;" href="index.html">D3 Times
+    </a>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12  col-md-11 mx-auto">
+      <h4>Data Table</h4>
+      <h5>The following table includes all of the data used for plotting during this project.</h5>
+      <br>
+      <div class="col-xs-12  col-md-12 mx-auto">
+
+        <table id="infotable" class=" .table-succes .table-striped .table-hover">
+          <thead>
+            <th scope="col">ID</th>
+            <th scope="col">State</th>
+            <th scope="col">State Abbr.</th>
+            <th scope="col">Poverty rate</th>
+            <th scope="col">Poverty MOE</th>
+            <th scope="col">Age</th>
+            <th scope="col">Age MOE</th>
+            <th scope="col">Median Income</th>
+            <th scope="col">Income MOE</th>
+            <th scope="col">Heathcare Rate</th>
+            <th scope="col">Healthcare Low</th>
+            <th scope="col">Healthcare High</th>
+            <th scope="col">Obesity Rate</th>
+            <th scope="col">Obesity Low</th>
+            <th scope="col">Obesity High</th>
+            <th scope="col">Smoking Rate</th>
+            <th scope="col">Smoking Low</th>
+            <th scope="col">Smoking High</th>
+          </thead>
+          <tbody>
+            <tr class=" table table-succcess, table table-striped, table table-hover "> </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Footer-->
+    <div id="footer">
+      <div class="col-xs-12  col-md-3 mx-auto">
+        <p>Julia Cooper 2022</p>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>

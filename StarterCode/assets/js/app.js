@@ -7,9 +7,8 @@ var margin = { top: 100, right: 100, bottom: 100, left: 100 };
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
-// Create an SVG wrapper, append an SVG group that will hold our chart,
-// and shift the latter by left and top margins.
-// added functionality to enable dynaimci shrinking
+// Create an SVG wrapper, append an SVG group that will hold our chart,and shift the latter by left and top margins.
+// added functionality to enable dynamic shrinking
 
 var svg = d3
   .select("#scatter")
@@ -17,14 +16,10 @@ var svg = d3
   .attr("preserveAspectRatio", "xMinYMin meet")
   .attr("viewBox", " 0 0 950 500")
   .classed("svg-content", true);
-//   .attr("width", svgWidth)
-//   .attr("height", svgHeight);
-
 
   // Append an SVG group
 var chartGroup = svg.append("g")
 .attr("transform", `translate(${margin.left}, ${margin.top})`);
-  
 
   // Initial Params
 var chosenXAxis = "poverty";
@@ -35,7 +30,7 @@ function xScale(data, chosenXAxis) {
   // create scales
   if (chosenXAxis != "income") {
   var xLinearScale = d3.scaleLinear()
-  // WHY use the -1 / 10000 and +1 and +10000 to make a buffer so circles are not on the edge of the graph
+//   Use the -1 / 10000 and +1 and +10000 to make a buffer so circles are not on the edge of the graph
     .domain([d3.min(data, d => d[chosenXAxis]) -1, 
       d3.max(data, d => d[chosenXAxis]) +1
     ])
@@ -43,7 +38,6 @@ function xScale(data, chosenXAxis) {
 
   } else {
     var xLinearScale = d3.scaleLinear()
-        // .domain(d3.extent(data, d => d[chosenXAxis]))
         .domain([d3.min(data, d => d[chosenXAxis]) - 10000, d3.max(data, d => d[chosenXAxis]) + 10000])
         .range([0, width]);
 }
@@ -71,7 +65,7 @@ function calcLinear(values_x, values_y) {
   var count = 0;
 
   /*
-   * We'll use those variables for faster read/write access.
+   * Use those variables for faster read/write access.
    */
   var x = 0;
   var y = 0;
@@ -81,9 +75,6 @@ function calcLinear(values_x, values_y) {
       throw new Error("The parameters values_x and values_y need to have same size!");
   }
 
-  /*
-   * Nothing to do.
-   */
   if (values_length === 0) {
       return [
           [],
@@ -93,7 +84,7 @@ function calcLinear(values_x, values_y) {
 
   /*
    * create the required numerticl points and calculate the sum for each of the parts necessary.
-   * changed v to i 
+  
  */ for (var i = 0; i < values_length; i++) {
       x = values_x[i];
       y = values_y[i];
@@ -114,7 +105,7 @@ function calcLinear(values_x, values_y) {
 
 
   /*
-   * We will make the x and y result line now
+   * Create the x and y result line 
    */
   var result_values_x = [];
   var result_values_y = [];
@@ -134,7 +125,7 @@ function calcLinear(values_x, values_y) {
 
   var r2 = Math.pow((count * sum_xy - sum_x * sum_y) / Math.sqrt((count * sum_xx - sum_x * sum_x) * (count * sum_yy - sum_y * sum_y)), 2);
   console.log(r2);
-  // return [d3.min(result_values_x),d3.min(result_values_y), d3.max(result_values_x),d3.max(result_values_y), r2];
+  
   return [{
           "x": d3.min(result_values_x),
           "y": d3.min(result_values_y)
@@ -148,7 +139,7 @@ function calcLinear(values_x, values_y) {
 
 }
 
-// function used for updating axes upon click on axis label
+// add in function for updating axes upon click on axis label
 function renderXAxis(newXScale, xAxis) {
   let bottomAxis = d3.axisBottom(newXScale);
 
@@ -169,8 +160,7 @@ function renderYAxis(newYScale, yAxis) {
   return yAxis;
 }
 
-// B CODE function used for updating circles group with a transition to
-// new circles
+// add function for updating circles group with a transition to new circles
 function renderCircles(circlesGroup, newXScale, newYScale, chosenXAxis, chosenYAxis) {
 
   circlesGroup.transition()
@@ -189,7 +179,6 @@ function renderCirclesText(circlesGroupText, newXScale, newYScale, chosenXAxis, 
 
   return circlesGroupText;
 }
-// BETHANY CODE
 
 function renderTrend(rSquared, newValues_x, newValues_y) {
 
@@ -204,7 +193,7 @@ function renderTrend(rSquared, newValues_x, newValues_y) {
  
      return rSquared;
  }
-
+// Build data table - see data.html 
  function buildTable(data) {
   var tbody = d3.select("tbody");
   // clear table
@@ -225,7 +214,7 @@ function renderTrend(rSquared, newValues_x, newValues_y) {
   });
 }
 
-// function used for updating circles group with new tooltip
+// add function for updating circles group with new tooltip
 function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
   var xLabel = ''
   var yLabel = ''
@@ -255,6 +244,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
           break;
   }
   // console.log(xLabel);
+//   Create content for tooltips
 
   var toolTip = d3.tip()
   .attr("class", "tooltip")
@@ -273,6 +263,40 @@ return circlesGroup;
 
 // Read the data
 d3.csv("assets/data/data.csv").then(function(data) {
+    var tabulate = function (data,columns) {
+        var table = d3.select('body').append('table')
+          var thead = table.append('thead')
+          var tbody = table.append('tbody')
+      
+          thead.append('tr')
+            .selectAll('th')
+              .data(columns)
+              .enter()
+            .append('th')
+              .text(function (d) { return d })
+      
+          var rows = tbody.selectAll('tr')
+              .data(data)
+              .enter()
+            .append('tr')
+      
+          var cells = rows.selectAll('td')
+              .data(function(row) {
+                  return columns.map(function (column) {
+                      return { column: column, value: row[column] }
+                })
+            })
+            .enter()
+          .append('td')
+            .text(function (d) { return d.value })
+      
+        return table;
+      }
+      
+      d3.csv('data.csv',function (data) {
+          var columns = ['variable','aror','asd','maxdd']
+        tabulate(data,columns)
+      })
 
     // parse data
     data.forEach(function(data) {
@@ -284,7 +308,7 @@ d3.csv("assets/data/data.csv").then(function(data) {
         data.smokes = +data.smokes;
     });
 
-    // populate table
+    // populate data table - see data.html
     buildTable(data);
   
     var xLinearScale = xScale(data, chosenXAxis);
@@ -537,6 +561,7 @@ xLabelsGroup.selectAll("text")
                 }
             });
     });
+
 });
 
 
