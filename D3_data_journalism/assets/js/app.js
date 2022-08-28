@@ -373,21 +373,21 @@ d3.csv("assets/data/data.csv").then(function(data) {
         .attr("y", 20)
         .attr("value", "poverty") // value to grab for event listener
         .classed("active", true)
-        .text("Percentage in Poverty");
+        .text("In Poverty (%)");
 
     var incomeLabel = xLabelsGroup.append("text")
         .attr("x", 0)
         .attr("y", 40)
         .attr("value", "income") // value to grab for event listener
         .classed("inactive", true)
-        .text("Median Income");
+        .text("Household Income (Median)");
 
     var ageLabel = xLabelsGroup.append("text")
         .attr("x", 0)
         .attr("y", 60)
         .attr("value", "age") // value to grab for event listener
         .classed("inactive", true)
-        .text("Median Age");
+        .text("Age (Median)");
 
 // Create group for  3 y- axis labels
     var yLabelsGroup = chartGroup.append("g")
@@ -403,21 +403,21 @@ d3.csv("assets/data/data.csv").then(function(data) {
         .attr("y", -20)
         .attr("value", "healthcare") // value to grab for event listener
         .classed("active", true)
-        .text("Percentage that Lack Healthcare");
+        .text("Lacks Healthcare (%)");
 
     var obesityLabel = yLabelsGroup.append("text")
         .attr("x", 0)
         .attr("y", -40)
         .attr("value", "obesity") // value to grab for event listener
         .classed("inactive", true)
-        .text("Percentage Obese");
+        .text("Obese (%)");
 
     var smokerLabel = yLabelsGroup.append("text")
         .attr("x", 0)
         .attr("y", -60)
         .attr("value", "smokes") // value to grab for event listener
         .classed("inactive", true)
-        .text("Percentage of Smokers");
+        .text("Smokers (%)");
 
 // updateToolTip function above csv import
 circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, data);
